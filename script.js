@@ -7,14 +7,16 @@ let audio = new Audio("./tunes/tunes/a.wav");
 
 const playTune = (key) => {
     audio.src = `./tunes/tunes/${key}.wav`;
-    var playPromise = audio.play();
-    if(playPromise !==undefined)
-    {
-        playPromise.then(_ =>{
-        }).catch(error =>{
+    audio.pause();
+    audio.load();
+    audio.play();
+    // if(playPromise !==undefined)
+    // {
+    //     playPromise.then(_ =>{
+    //     }).catch(error =>{
 
-        });
-    }
+    //     });
+    // }
 
     const clickedKey = document.querySelector(`[data-key="${key}"]`);
     clickedKey.classList.add("active");
